@@ -1,0 +1,122 @@
+# Лабораторна робота 1. Робота з СУБД PostgreSQL та основи SQL
+
+## Загальна інформація
+
+**Здобувач освіти:** [Зінькевич Олександра Василівна]
+**Група:** [ІПЗ-31]
+**Обраний рівень складності:** [3]
+
+## Виконання завдань
+
+### Список таблиць
+
+```sql
+-- Запит для отримання списку таблиць
+SELECT table_name
+FROM information_schema.tables
+WHERE table_schema = 'public'
+ORDER BY table_name;
+```
+
+Результат: У базі даних створено 8 основних таблиць: categories, customers, employees, order_items, orders, products, regions, suppliers.
+
+Скріншот
+![screen](screen/table.png)
+...
+
+## Рівень 1
+
+### Отримати всі записи з таблиці customers.
+
+```sql
+SELECT * FROM customers;
+```
+
+Результат: Отримано 15 записів клієнтів, включаючи як фізичних осіб, так і юридичні особи з різних міст України.
+
+Скріншот
+![screen](screen/level1.1.png)
+![screen](screen/level1.2.png)
+...
+
+### Вивести назви товарів та їхні ціни
+
+```sql
+SELECT product_name, unit_price FROM products;
+```
+
+Результат: Отримано перелік усіх товарів із вказанням їхньої вартості
+
+Скріншот
+![screen](screen/level1.3.png)
+![screen](screen/level1.4.png)
+![screen](screen/level1.5.png)
+...
+
+### Показати контактні дані співробітників
+
+```sql
+SELECT last_name, first_name, phone, email FROM employees;
+```
+
+Результат: Отримано список працівників з їхніми номерами телефонів та електронними поштами.
+
+Скріншот
+![screen](screen/level1.6.png)
+...
+
+### Клієнти з міста Київ
+
+```sql
+SELECT * FROM customers WHERE city = 'Київ';
+```
+
+Результат: Знайдено клієнтів, що зареєстровані в місті Київ.
+
+Скріншот
+![screen](screen/level1.7.png)
+...
+
+### Товари дорожчі за 25000 грн
+
+```sql
+SELECT * FROM products WHERE unit_price > 25000;
+```
+
+Результат: Отримано список товарів з ціною понад 25000 грн.
+
+Скріншот
+![screen](screen/level1.8.png)
+![screen](screen/level1.9.png)
+...
+
+### Замовлення зі статусом 'delivered'
+
+```sql
+SELECT * FROM orders WHERE order_status = 'delivered';
+```
+
+Результат: Відфільтровано всі успішно доставлені замовлення.
+
+Скріншот
+![screen](screen/level1.10.png)
+![screen](screen/level1.11.png)
+![screen](screen/level1.12.png)
+...
+
+### Співробітники відділу продажів
+
+```sql
+SELECT * FROM employees WHERE title LIKE '%продаж%';
+```
+
+Результат: Отримано список співробітників, які працюють у відділі продажів.
+
+Скріншот
+![screen](screen/level1.13.png)
+
+## Висновки
+
+**Самооцінка**: [ваша оцінка роботи, 3-5]
+
+**Обгрунтування**: [обґрунтування самооцінки]
